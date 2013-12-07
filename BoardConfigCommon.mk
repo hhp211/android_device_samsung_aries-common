@@ -133,22 +133,23 @@ BOARD_CUSTOM_VSYNC_IOCTL := true
 # Suspend in charger to disable capacitive keys
 BOARD_CHARGER_ENABLE_SUSPEND := true
 
+# Required for TV out
+COMMON_GLOBAL_CFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
+
 # SELinux
 BOARD_SEPOLICY_DIRS += \
     device/samsung/aries-common/sepolicy
 
 BOARD_SEPOLICY_UNION += \
     bdaddr_read.te \
-    device.te \
     file_contexts \
     geomagneticd.te \
-    mediaserver.te \
     orientationd.te \
     property_contexts \
     pvrsrvinit.te \
     rild.te \
     tvouthack.te \
-    tvoutserver.te \
+    tvoutserver.te 
 
 # Hardware tunables
 BOARD_HARDWARE_CLASS := device/samsung/aries-common/cmhw/
